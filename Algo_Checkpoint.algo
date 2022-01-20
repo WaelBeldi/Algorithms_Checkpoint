@@ -1,0 +1,41 @@
+ALGORITHM algo_checkpoint (sentence)
+
+VAR
+
+    count_chars, count_words, count_vowels : INTEGER := 0;
+    
+BEGIN
+    /* iterate over the sentence while the current character is not '.' */
+    WHILE ( sentence[count_chars] != '.' ) DO
+        
+        /* if the current character is a space, then we have a word
+        and count_words gets a +1 */
+        IF ( sentence[count_chars] == ' ' ) THEN
+            count_words++;
+        END IF;
+        
+        /* if the current character is 'a' or 'e' or 'i' or 'o' or 'u',
+        then we have a vowel and count_vowels gets a +1 */
+        IF ( sentence[count_chars] in ['a', 'e', 'i', 'o', 'u'] ) THEN
+            count_vowels++;
+        END IF;
+        
+        /* count_char (our index) gets a +1 to continue the while loop*/
+        count_chars++;
+
+    END_WHILE;
+
+    /* since we have only one space between each word, and the last word does
+    not have a space after it, to count it we add +1 to count_words */
+    count_words++;
+
+    /* since the while loop stops if sentence[count_char] is '.'
+    then count_char will not count it, and it needs to be added,
+    so count_char get a +1 */
+    count_chars++;
+
+    WRITE (count_words);
+    WRITE (count_chars);
+    WRITE (count_vowels);
+
+END
