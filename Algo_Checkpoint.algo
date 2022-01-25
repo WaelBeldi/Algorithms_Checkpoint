@@ -3,10 +3,11 @@ ALGORITHM algo_checkpoint (sentence)
 VAR
 
     count_chars, count_words, count_vowels : INTEGER := 0;
+    tab : ARRAY OF CHAR [5];
     
 BEGIN
     /* iterate over the sentence while the current character is not '.' */
-    WHILE ( sentence[count_chars] != '.' ) DO
+    WHILE ( sentence[count_chars] <> '.' ) DO
         
         /* if the current character is a space, then we have a word
         and count_words gets a +1 */
